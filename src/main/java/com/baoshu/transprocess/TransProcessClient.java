@@ -19,6 +19,7 @@ public class TransProcessClient {
 	static final String host = "127.0.0.1";
 	static final int port = 8089;
 	private String info ;
+	private SocketChannel socketChannel;
 	public TransProcessClient(String info) {
 		this.info = info;
 	}
@@ -38,7 +39,6 @@ public class TransProcessClient {
                	 	ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));
 					ch.pipeline().addLast(new StringDecoder());
 					ch.pipeline().addLast(new TransClientHandler(info));
-					
 				}
 				 
 			 });

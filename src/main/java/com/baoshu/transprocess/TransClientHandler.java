@@ -27,11 +27,11 @@ public class TransClientHandler extends ChannelInboundHandlerAdapter {
 		
 //		ctx.writeAndFlush(firstMessage);
 		ByteBuf message = null;
-		for(int i = 0; i < 10; i++) {
-			message = Unpooled.buffer(req.length);
-			message.writeBytes(req);
-			ctx.writeAndFlush(message);
-		}
+
+		message = Unpooled.buffer(req.length);
+		message.writeBytes(req);
+		ctx.writeAndFlush(message);
+
 	}
 
 	@Override
